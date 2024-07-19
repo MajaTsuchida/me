@@ -17,7 +17,13 @@ def loop_ranger(start, stop=None, step=1):
     Look up for how range() works in the python docs. You could  answer this
     with just the range function, but we'd like you to do it the long way.
     """
-    return None
+    my_range = []
+
+    for i in range(start, stop, step):
+
+        my_range.append(i)
+
+    return my_range
 
 
 def two_step_ranger(start, stop):
@@ -28,7 +34,9 @@ def two_step_ranger(start, stop):
 
     You can either reuse loop_ranger, or the range function that in the standard library
     """
-    return None
+    my_range = [] 
+
+    return list(range(start, stop, 2))
 
 
 def stubborn_asker(low, high):
@@ -39,7 +47,17 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    return None
+    message  = f"give me a number between {low}, and {high}:".format(low=low, high=high)
+    raw_imput = int(input(message))
+    while True:
+        imput_number = int(raw_imput(message))
+        if low < imput_number < high:
+        print("Thanks! {} looks good.".format(imput_number))
+        return imput_number
+    else: 
+        print("{input} isn't between {low}, and {high}".format (imput=imput_number,
+                                                                low=low,
+                                                                high=high)) 
 
 
 def not_number_rejector(message):
@@ -49,7 +67,13 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    while True:
+        try: 
+            imput_number = int(raw_imput(message))
+            print("thanks! {} looks good.".format(imput_number))
+            return imput_number
+        except Exception as e:
+            print("err, you wot, try again ({})".format(e))
 
 
 def super_asker(low, high):
@@ -69,10 +93,10 @@ if __name__ == "__main__":
     # NOTE: because some of these take user input you can't run them from
 
     print("\nloop_ranger", loop_ranger(1, 10, 2))
-    print("\ntwo_step_ranger", two_step_ranger(1, 10))
+    print("\ntwo_step_ranger", two_step_ranger(1, 10, 3))
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")
-    not_number_rejector("Enter a number: ")
+    not_number_rejector("give me a number: ")
     print("\nsuper_asker")
     super_asker(33, 42)

@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+faced few issues while completing the exersises howeever it worked at the end. Struggled to complete the star pyramid in Exersise 3, where some of my structure was similar to the answer but the codes were mixed up. Exersise 2 was interesting as i could learn simple mistakes that are often made. Struggled most while completing exersise 3 but i was able to figure it out at the end after discussing.
