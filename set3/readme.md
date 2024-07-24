@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+i struggles a little in exercise 1 super asker as I had the {low} and {high} in the wrong lines or positions. Struggled alot while doing the binary search as I often got the error message stating "binary search () takes 2 positional arguments but 3 was taken". While I was using the def binary search code for most of my attempts, I realised that it was unnecessary and was able to solve this exercise.

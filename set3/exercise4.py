@@ -24,24 +24,21 @@ def binary_search(low, high, actual_number):
     tries = 0
     guess = 0
 
-def binary_search(arr, low, high):
-    if high >= low:
-        mid = (high + low) // 2
-        if arr[mid] == x:
-            return mid
-        elif arr[mid] > x:
-            return binary_search(arr, low, mid - 1, x)
+    while low <= high:
+        mid = (low + high) // 2
+        guess = mid 
+        tries +=1
+        if mid == actual_number: 
+            return {"guess": guess, "tries": tries}
+        elif mid < actual_number:
+            low = mid + 1
         else:
-            return binary_search(arr, mid + 1, high, x)
-    else:
-        return -1
-arr = [  ]
-x = 10
-result = binary_search(arr, 0, len(arr)-1, x)
-if result != -1:
-    print("Element is present at index", str(result))
-else:
-    print("Element is not present in array")
+            high = mid - 1
+
+    return {"guess": guess, "tries": tries}
+
+
+
 
 if __name__ == "__main__":
     print(binary_search(1, 100, 5))

@@ -17,13 +17,10 @@ def loop_ranger(start, stop=None, step=1):
     Look up for how range() works in the python docs. You could  answer this
     with just the range function, but we'd like you to do it the long way.
     """
-    my_range = []
-
+    new_list = []
     for i in range(start, stop, step):
-
-        my_range.append(i)
-
-    return my_range
+        new_list.append(i)
+    return new_list
 
 
 def two_step_ranger(start, stop):
@@ -34,10 +31,12 @@ def two_step_ranger(start, stop):
 
     You can either reuse loop_ranger, or the range function that in the standard library
     """
-    my_range = [] 
+    step = 2 
 
-    return list(range(start, stop, 2))
-
+    new_list = []
+    for i in range(start, stop, step):
+        new_list.append(i)
+    return new_list
 
 def stubborn_asker(low, high):
     """Ask for a number between low and high until actually given one.
@@ -47,18 +46,12 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    message  = f"give me a number between {low}, and {high}:".format(low=low, high=high)
-    raw_imput = int(input(message))
     while True:
-        imput_number = int(raw_imput(message))
-        if low < imput_number < high:
-        print("Thanks! {} looks good.".format(imput_number))
-        return imput_number
-    else: 
-        print("{input} isn't between {low}, and {high}".format (imput=imput_number,
-                                                                low=low,
-                                                                high=high)) 
-
+            num = int(input(f"give me a number between {low} and {high}: "))
+            if low <= num <= high:
+                return num
+            else: 
+                print(f"Number must be between {low} and {high}. Try again")
 
 def not_number_rejector(message):
     """Ask for a number repeatedly until actually given one.
@@ -67,13 +60,14 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
+    
+    message = "Enter a number"
     while True:
         try: 
-            imput_number = int(raw_imput(message))
-            print("thanks! {} looks good.".format(imput_number))
-            return imput_number
-        except Exception as e:
-            print("err, you wot, try again ({})".format(e))
+            num = int(input("Please enter a number: "))
+            return num
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
 
 def super_asker(low, high):
@@ -82,7 +76,14 @@ def super_asker(low, high):
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     """
-    return None
+    message = "Enter a number" 
+    while True:
+        try:
+            num = int(input(f"please give me a number between {low} and {high}: "))
+            if low <= num <= high:
+                return num
+        except ValueError:
+            print ("invalid input. Please enter a valid number between {low} and {high}.")
 
 
 if __name__ == "__main__":
