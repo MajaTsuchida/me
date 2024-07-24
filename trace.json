@@ -322,10 +322,10 @@
   },
   {
     "of_total": 7,
-    "mark": 3,
+    "mark": 6,
     "results": [
       {
-        "value": 0,
+        "value": 1,
         "name": "Exercise 1: get some data out of a JSON file"
       },
       {
@@ -333,10 +333,6 @@
         "name": "Exercise 1: request some words from the internet"
       },
       {
-        "value": 0,
-        "name": "Exercise 1: Consult the Pokedex."
-      },
-      {
         "value": 1,
         "name": "Exercise 1: Consult the Pokedex."
       },
@@ -345,7 +341,11 @@
         "name": "Exercise 1: Consult the Pokedex."
       },
       {
-        "value": 0,
+        "value": 1,
+        "name": "Exercise 1: Consult the Pokedex."
+      },
+      {
+        "value": 1,
         "name": "Exercise 1: Consult the Pokedex."
       },
       {

@@ -291,8 +291,8 @@ def fast_filler(number_of_words=200) -> str:
 
     
     if words:
-        words[0] = words[0].capitalize()
-    text = " ".join(words) + "."
+        final_text = " ".join(words)
+        text = final_text.capitalize() + "."
 
     return text
 

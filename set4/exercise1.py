@@ -40,8 +40,13 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
     data = json.loads(json_data)
 
-    return {"lastname": data["results"][0]["name"]["last"], "password":data["results"][0]["login"]["password"], "postcodePlusID": data["results"][0]["location"]["postcode"]
-    }
+    last_name = data["results"][0]["name"]["last"]
+    password = data["results"][0]["login"]["password"]
+    postcode = data["results"][0]["location"]["postcode"]
+    ID = data["results"][0]["id"]["value"]
+    postcodePlusID = int(postcode) + int(ID)
+    
+    return {"lastName": last_name , "password": password , "postcodePlusID": postcodePlusID}
 
 
 
@@ -126,12 +131,13 @@ def pokedex(low=1, high=5):
             pokemon_data = json.loads(r.text)
             pokemon_height = pokemon_data["height"]
 
-        if pokemon_height > tallest:
-                tallest = pokemon_height 
-                name = pokemon_data["forms"][0]["name"]
-                weight = pokemon_data["weight"]
-                height = pokemon_height 
-                return {"name": name, "weight": weight, "height": tallest}
+            if pokemon_height > tallest:
+                    tallest = pokemon_height 
+                    name = pokemon_data["forms"][0]["name"]
+                    weight = pokemon_data["weight"]
+                    height = pokemon_height
+
+    return {"name": name, "weight": weight, "height": tallest}
 
 def diarist():
     """Read gcode and find facts about it.
