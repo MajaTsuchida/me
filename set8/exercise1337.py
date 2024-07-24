@@ -106,15 +106,16 @@ def fizz_buzz() -> list:
         'FizzBuzz', 16, 17, ...]
     """
     fizz_buzz_list = []
-    for i in range(1, 101):
-        if i % 3 == 0 and i % 5 == 0:
+
+    for num in range(1, 101):
+        if num % 3 == 0 and num % 5 == 0:
             fizz_buzz_list.append("FizzBuzz")
-        elif i % 3 == 0:
+        elif num % 3 == 0:
             fizz_buzz_list.append("Fizz")
-        elif i % 5 == 0:
+        elif num % 5 == 0:
             fizz_buzz_list.append("Buzz")
         else:
-            fizz_buzz_list.append(str(i))
+            fizz_buzz_list.append(num)
     return fizz_buzz_list
 
 
@@ -178,10 +179,17 @@ def best_letter_for_pets() -> str:
     TIP: use the function you just wrote to help you here!
     TIP: you've seen this before in the pokedex.
     """
+
     import string
 
     the_alphabet = string.ascii_lowercase
     most_popular_letter = ""
+    max_count = 0  
+    for letter in the_alphabet:
+        filtered_pets = pet_filter(letter)
+        if len(filtered_pets) > max_count:
+            max_count = len(filtered_pets)
+            most_popular_letter = letter
 
     return most_popular_letter
 
