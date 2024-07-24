@@ -245,18 +245,16 @@ def random_filler_text(number_of_words=200) -> str:
     """
 
     my_dict = make_filler_text_dictionary()
-
     words = []
 
-    lengths = list(my_dict.keys())
+    lengths = list(my_dict.keys())  
     for _ in range(number_of_words):
-        length = random.choice(lengths)
-        word_list = my_dict[length]
-        if word_list:
-            word = random.choice(word_list)
-            words.append(word) 
-
-    return " ".join(words)
+        length = random.choice(lengths)  
+        word_list = my_dict[length]      
+        random_word = random.choice(word_list)  
+        words.append(random_word)
+    
+    return " ".join(words) 
 
 
 def fast_filler(number_of_words=200) -> str:
@@ -276,25 +274,27 @@ def fast_filler(number_of_words=200) -> str:
     """
 
     fname = "dict_cache.json"
+
     if os.path.exists(fname):
-        with open(fname, 'r') as file:
-            wd = json.load(file)
-            
-            wd = {int(k): v for k, v in wd.items()}
+        with open(fname, 'r') as f:
+            my_dict = json.load(f)
     else:
-        wd = make_filler_text_dictionary()
-        with open(fname, 'w') as file:
-            json.dump(wd, file)
+        my_dict = make_filler_text_dictionary()
+        with open(fname, 'w') as f:
+            json.dump(my_dict, f)
 
+    words = []
+
+    lengths = list(my_dict.keys()) 
+    for _ in range(number_of_words):
+        length = random.choice(lengths)  
+        word_list = my_dict[str(length)]  
+        random_word = random.choice(word_list)  
+        words.append(random_word.capitalize())  
+
+    paragraph = " ".join(words) + "."
     
-    words = [random.choice(wd[random.choice(list(wd.keys()))]) for _ in range(number_of_words)]
-
-    
-    if words:
-        final_text = " ".join(words)
-        text = final_text.capitalize() + "."
-
-    return text
+    return paragraph
 
 if __name__ == "__main__":
     print("give_me_five", give_me_five(), type(give_me_five()))
