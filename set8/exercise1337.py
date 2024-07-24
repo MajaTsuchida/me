@@ -92,7 +92,7 @@ def fizz_buzz() -> list:
 
     This is the most famous basic programming test of all time!
 
-       "Write a program that prints the numbers from 1 to 100. But for
+        "Write a program that prints the numbers from 1 to 100. But for
         multiples of three print "Fizz" instead of the number and for
         the multiples of five print "Buzz". For numbers which are
         multiples of both three and five print "FizzBuzz"."
@@ -102,12 +102,19 @@ def fizz_buzz() -> list:
     Return a list that has an integer if the number isn't special,
     and a string if it is. E.g.
         [1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8,
-         'Fizz', 'Buzz',  11, 'Fizz', 13, 14,
-         'FizzBuzz', 16, 17, ...]
+        'Fizz', 'Buzz',  11, 'Fizz', 13, 14,
+        'FizzBuzz', 16, 17, ...]
     """
     fizz_buzz_list = []
-    # your code here
-
+    for i in range(1, 101):
+        if i % 3 == 0 and i % 5 == 0:
+            fizz_buzz_list.append("FizzBuzz")
+        elif i % 3 == 0:
+            fizz_buzz_list.append("Fizz")
+        elif i % 5 == 0:
+            fizz_buzz_list.append("Buzz")
+        else:
+            fizz_buzz_list.append(str(i))
     return fizz_buzz_list
 
 
@@ -118,12 +125,16 @@ def set_it_on_fire(input_string="very naughty boy") -> str:
     e.g. "very naughty boy" should return the string
     "🔥V🔥E🔥R🔥Y🔥 🔥N🔥A🔥U🔥G🔥H🔥T🔥Y🔥 🔥B🔥O🔥Y🔥"
     TIP: strings are pretty much lists of chars.
-         If you list("string") you get ['s', 't', 'r', 'i', 'n', 'g']
+        If you list("string") you get ['s', 't', 'r', 'i', 'n', 'g']
     TIP: consider using the 'join' method in Python.
     TIP: make sure that you have a 🔥 on both ends of the string.
     """
 
-    return None
+    input_string_upper = input_string.upper()
+    interlaced_string = '🔥'.join(input_string_upper)
+    final_string = f"🔥{interlaced_string}🔥"
+
+    return final_string
 
 
 def the_chain_gang_5(the_value) -> bool:
@@ -137,7 +148,7 @@ def the_chain_gang_5(the_value) -> bool:
     TIP: you've already written a function that subtracts 5
     """
 
-    return None
+    return the_value % 5 is 0
 
 
 def pet_filter(letter="a") -> list:
@@ -154,7 +165,7 @@ def pet_filter(letter="a") -> list:
         "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"
     ]
     # fmt: on
-    filtered = []
+    filtered = [pet for pet in pets if letter in pet]
 
     return filtered
 
