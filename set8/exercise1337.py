@@ -219,8 +219,16 @@ def make_filler_text_dictionary() -> dict:
     TIP: you'll need the requests library
     """
 
-    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
-    wd = {}
+
+    url_base = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
+    wd = {3: [], 4: [], 5: [], 6: [], 7: []} 
+    for length in wd.keys():
+        url = f"{url_base}{length}"
+        words = []
+        for _ in range(4):
+            r = requests.get(url)
+            words.append(r.text.strip())
+            wd[length] = words 
 
     return wd
 
@@ -239,6 +247,14 @@ def random_filler_text(number_of_words=200) -> str:
     my_dict = make_filler_text_dictionary()
 
     words = []
+
+    lengths = list(my_dict.keys())
+    for _ in range(number_of_words):
+        length = random.choice(lengths)
+        word_list = my_dict[length]
+        if word_list:
+            word = random.choice(word_list)
+            words.append(word) 
 
     return " ".join(words)
 
@@ -260,9 +276,25 @@ def fast_filler(number_of_words=200) -> str:
     """
 
     fname = "dict_cache.json"
+    if os.path.exists(fname):
+        with open(fname, 'r') as file:
+            wd = json.load(file)
+            
+            wd = {int(k): v for k, v in wd.items()}
+    else:
+        wd = make_filler_text_dictionary()
+        with open(fname, 'w') as file:
+            json.dump(wd, file)
 
-    return None
+    
+    words = [random.choice(wd[random.choice(list(wd.keys()))]) for _ in range(number_of_words)]
 
+    
+    if words:
+        words[0] = words[0].capitalize()
+    text = " ".join(words) + "."
+
+    return text
 
 if __name__ == "__main__":
     print("give_me_five", give_me_five(), type(give_me_five()))

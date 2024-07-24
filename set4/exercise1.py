@@ -113,22 +113,25 @@ def pokedex(low=1, high=5):
         get very long. If you are accessing a thing often, assign it to a
         variable and then future access will be easier.
     """
-id = low
-tallest = 0 
-while id < high:
-    url = f"https://pokeapi.co/api/v2/pokemon/{id}"
-    r = requests.get(url)
-    if r.status_code is 200:
-        url = json.loads(r.text)
-        height = url["height"]
-        if tallest < height:
-            name = url["forms"][0]["name"] 
-            weight=url["weight"]
-            tallest=url["height"]
-    id =id+1
+    tallest = 0 
+    name = ""
+    weight = 0 
+    height = 0 
 
-return {"name": name, "weight": weight, "height": tallest} 
+    for id in range(low, high + 1):
+        url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+        r = requests.get(url)
 
+        if r.status_code == 200:
+            pokemon_data = json.loads(r.text)
+            pokemon_height = pokemon_data["height"]
+
+        if pokemon_height > tallest:
+                tallest = pokemon_height 
+                name = pokemon_data["forms"][0]["name"]
+                weight = pokemon_data["weight"]
+                height = pokemon_height 
+                return {"name": name, "weight": weight, "height": tallest}
 
 def diarist():
     """Read gcode and find facts about it.
@@ -149,13 +152,7 @@ def diarist():
     """
     pass
 
-counter = 0 
-file = open ("/C:Users/konnm/1161/me/set4/Trispokedovetiles(laser).gcode" , "r")
-for line in file:
-    if "M10 P1" in line:
-        counter = counter + 1
-write = open("/C:Users/konnm/1161/me/set4/laser.pew" , "w")
-write.write(str(counter))
+
 
 
 if __name__ == "__main__":
