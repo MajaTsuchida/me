@@ -51,13 +51,12 @@ def dictionary_please() -> dict:
 
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
-    well_is_it = None
-    return well_is_it
+    return some_number == 5
 
 
 def take_five(some_number) -> int:
     """Subtracts 5 from some_number."""
-    return None
+    return some_number - 5
 
 
 def greet(name="Towering Timmy") -> str:
@@ -66,7 +65,7 @@ def greet(name="Towering Timmy") -> str:
     E.g. if given as "Towering Timmy" it should
          return "Well hello, Towering Timmy"
     """
-    return None
+    return f"Well hello, {name}"
 
 
 def one_counter(input_list=[1, 4, 1, 5, 1, 1]) -> int:
@@ -74,18 +73,18 @@ def one_counter(input_list=[1, 4, 1, 5, 1, 1]) -> int:
     Return an integer.
     TIP: the test will use a different input_list, so don't just return 2
     """
-    count = None
+    list = (1)
 
-    return count
+    return input_list.count (1)
 
 
 def n_counter(search_for_this, input_list=[1, 4, 1, 5, 1, 1]) -> int:
     """Count the number of times search_for_this shows up in the input_list.
     Return an integer.
     """
-    count = None
+    count = search_for_this
 
-    return count
+    return input_list.count(search_for_this)
 
 
 def fizz_buzz() -> list:
