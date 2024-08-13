@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+In Week 5, I revisited and worked on the exercises from sets 1-4 that I had trouble with or left unfinished. I also explored various datasets for my data research project, such as the NSW Open Data website and the Australian Bureau of Statistics. At the end I chose to focus on the NSW Open Data, as they provided their data in the Excel format I was looking for. During my research, I discovered that there were lots of data related to travelling.

@@ -1,2 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
-Finished downloading all the software and made all the accounts for each of them. Failed with some codes and required some trials and errors by deleting and re installing but everything worked after a few attempts. Trinket link: https://trinket.io/python/7ed964e96f
+I completed downloading all the necessary software, including VS Code,　 setting up the required accounts, and connected everything to my GitHub to be able to push my changes. I did encounter some issues and had to go through some trial and error with uninstalling and reinstalling, everything eventually worked out with a few attempts and support from others. Trinket link: https://trinket.io/python/7ed964e96f

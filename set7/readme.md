@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+After finalizing my dataset, I consulted on whether it was suitable and how I could potentially present it for my data project. I was also introduced to Pandas and explored how it could be used to create maps, graphs, and lists. Using the code provided in the Pandas folder, I applied it to my chosen dataset and generated some graphs indicating the number of trips. However, I encountered some issues, such as numbers not displaying correctly or appearing on the wrong axis.
